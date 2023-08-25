@@ -8,6 +8,14 @@ import { loadState } from "./utils/Store.js"
 
 class ObservableAppState extends EventEmitter {
   
+  /**@type {import ('./models/Value.js').Value[]}*/
+values = loadState('values',[Value])
+
+
+
+// notes = loadState('notes',[Notes])
+
+
   notes = [
     new Notes({
       noteTitle: 'JavaScript',
@@ -17,11 +25,10 @@ class ObservableAppState extends EventEmitter {
       noteTitle: 'Basketball',
       noteBody: 'DO NOT forget you have basketball practice this whole week at 5pm.'
     })
-
-
   ]
   
-  
+  /**@type {import("./models/note.js").Notes|null}*/
+    activeNote = null
   
   
   
@@ -30,8 +37,7 @@ class ObservableAppState extends EventEmitter {
   
   page = ''
 
-  /** @type {import('./models/Value.js').Value[]} */
-  values = loadState('values', [Value])
+
 
   // NOTE Used to load initial data
   init() {

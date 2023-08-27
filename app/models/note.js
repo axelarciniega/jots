@@ -1,24 +1,26 @@
 import { generateId } from "../utils/GenerateId.js";
-
+import { AppState } from "../AppState.js";
 
 
 
 
 export class Notes{
     constructor(data){
-        console.log(data.title)
+        console.log(data)
         this.id = generateId()
         this.noteTitle = data.noteTitle ? data.noteTitle : data.title    
         this.noteBody = data.noteBody ? data.noteBody : ''
         this.noteDate = data.noteDate ? new Date(data.noteDate) : new Date()
-        this.noteColor = data.color
+        this.noteColor = data.noteColor ? data.noteColor : data.noteColor
     }
 
     get ListedTemplate(){
         return /*html*/`
+        <div>
+        </div>
         <div class="col-4">
         
-          <button onclick="app.notesController.setActive('${this.id}')">${this.noteTitle}</button>
+          <button style="background-color:${this.noteColor}" onclick="app.notesController.setActive('${this.id}')">${this.noteTitle}</button>
           <p>${this.noteDate.toLocaleDateString()}</p>
         </div>
         

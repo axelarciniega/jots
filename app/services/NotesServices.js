@@ -1,6 +1,8 @@
 import { AppState } from "../AppState.js"
+import { notesController } from "../controllers/notesController.js"
 import { Notes } from "../models/note.js"
 import { saveState } from "../utils/Store.js"
+import { setHTML } from "../utils/Writer.js"
 
 function _saveNotes(){
     saveState('notes',AppState.notes)
@@ -41,9 +43,12 @@ let foundNote = AppState.notes.find(note => note.id == noteId)
     }
 
     deleteNote(noteId){
-        let arry = AppState.notes.filter(note=>note.id != noteId)
+        let arry = AppState.notes.filter(note=> note.id != noteId)
+        console.log(arry)
         AppState.notes = arry
         _saveNotes()
+        let active = AppState.activeNote
+        setHTML('active-note',active.ActiveTemplate)
     }
 
 }

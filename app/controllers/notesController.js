@@ -19,6 +19,7 @@ function _drawActive(){
     setHTML('active-note',active.ActiveTemplate)
 }
 
+document.getElementById('note-count').innerText = `Note Count: ${AppState.notes.length.toString()}`
 
 
 export class notesController{
@@ -62,3 +63,4 @@ export class notesController{
     }
 
 }
+

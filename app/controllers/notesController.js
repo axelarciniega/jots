@@ -27,7 +27,6 @@ export class notesController{
         console.log('Hi from the controller')
         _drawNotes()
         AppState.on('activeNote', _drawActive)
-        
     }
     setActive(noteId){
         notesServices.setActive(noteId)
@@ -52,6 +51,8 @@ export class notesController{
         form.reset()
 
         notesServices.createNote(formData)
+        _drawNotes()
+        _drawActive()
         
     }
 
@@ -60,6 +61,8 @@ export class notesController{
             console.log('deleting')
             notesServices.deleteNote(noteId)
         }
+        _drawNotes()
+        _drawActive()
     }
 
 }

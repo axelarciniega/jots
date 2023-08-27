@@ -12,13 +12,13 @@ export const router = [
     view: /*html*/`
 <section class="row">
     <h2>Notes</h2>
-    <button data-bs-toggle="collapse" data-bs-target="#noteFormCollapse" class ="col-4">Create Note📝</button>
+    <button data-bs-toggle="collapse" data-bs-target="#noteFormCollapse" class ="button-color col-4">Create Note📝</button>
 
     <div class="collapse" id="noteFormCollapse">
     <form onsubmit="app.notesController.createNote()" action="">
     <div class="row d-flex justify-content-around">
     <div class="col-3">
-            <input required name='title' id="title"
+            <input required name='title' id="title" minLength="3" maxLength="15"
             type="text"
               class="form-control"
               placeholder="Title"
@@ -35,7 +35,7 @@ export const router = [
               </div>
               
               <div class = "text-end" type = "submit">
-              <button type="submit" class = "bg-danger">Submit!</button>
+              <button type="submit" class = " button-color">Submit!</button>
               </div>
               </div>
               </form>

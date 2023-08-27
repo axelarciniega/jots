@@ -31,7 +31,7 @@ export class Notes{
         return `
          <div class="col-8" id="active-note">
     <h1 style="border: 1px solid ${this.noteColor}">${this.noteTitle}</h1>
-    <p)">${this.noteDate.toLocaleDateString()}</p>
+    <p)">${this.noteDate.toLocaleTimeString()}</p>
     <div class="form-floating">
             <textarea
               class="form-control"
@@ -41,8 +41,8 @@ export class Notes{
             >${this.noteBody}</textarea>
             <label for="floatingTextarea2">Notes Below</label>
             <div class="d-flex justify-content-between">
-            <button onclick="app.notesController.saveNote()">Save</button>
-            <button onclick="app.notesController.deleteNote('${this.id}')">Delete Note <i class="mdi mdi-delete"></i></button>
+            <button class="bg-grey" onclick="app.notesController.saveNote()">Save</button>
+            <button class="bg-grey" onclick="app.notesController.deleteNote('${this.id}')">Delete Note <i class="mdi mdi-delete"></i></button>
             
             </div>
           </div>
@@ -51,5 +51,10 @@ export class Notes{
         
         `
     }
+
+    // get time(){
+    //     let date = this.noteDate
+    //     return date.toLocaleTimeString('en-us'{})
+    // }
 
 }

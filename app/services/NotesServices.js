@@ -47,8 +47,8 @@ let foundNote = AppState.notes.find(note => note.id == noteId)
         console.log(arry)
         AppState.notes = arry
         _saveNotes()
-        let active = AppState.activeNote
-        setHTML('active-note',active.ActiveTemplate)
+        // let active = AppState.activeNote
+        // setHTML('active-note',active.ActiveTemplate)
     }
 
 }

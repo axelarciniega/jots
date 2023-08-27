@@ -1,1 +1,12 @@
 /* BASIC STYLES HERE */
+.header-color{
+    background-color: rgb(255, 202, 131);
+}
+
+.body-color{
+    background-color: rgb(255, 224, 182);
+}
+
+.button-color{
+    background-color: rgb(255, 183, 86);
+}

@@ -6,10 +6,12 @@ import { generateId } from "../utils/GenerateId.js";
 
 export class Notes{
     constructor(data){
+        console.log(data.title)
         this.id = generateId()
-        this.noteTitle = data.noteTitle
-        this.noteBody = data.noteBody
+        this.noteTitle = data.noteTitle ? data.noteTitle : data.title    
+        this.noteBody = data.noteBody ? data.noteBody : ''
         this.noteDate = data.noteDate ? new Date(data.noteDate) : new Date()
+        this.noteColor = data.color
     }
 
     get ListedTemplate(){
@@ -26,7 +28,7 @@ export class Notes{
     get ActiveTemplate(){
         return `
          <div class="col-8" id="active-note">
-    <h1>${this.noteTitle}</h1>
+    <h1 style="border: 1px solid ${this.noteColor}">${this.noteTitle}</h1>
     <p)">${this.noteDate.toLocaleDateString()}</p>
     <div class="form-floating">
             <textarea
@@ -36,7 +38,11 @@ export class Notes{
               style="height: 300px"
             >${this.noteBody}</textarea>
             <label for="floatingTextarea2">Notes Below</label>
+            <div class="d-flex justify-content-between">
             <button onclick="app.notesController.saveNote()">Save</button>
+            <button onclick="app.notesController.deleteNote('${this.id}')">Delete Note <i class="mdi mdi-delete"></i></button>
+            
+            </div>
           </div>
         </div>
         </div>

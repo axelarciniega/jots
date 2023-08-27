@@ -12,20 +12,22 @@ class ObservableAppState extends EventEmitter {
 values = loadState('values',[Value])
 
 
+/**@type {import('./models/note.js').Notes[]}*/
+notes = loadState('notes',[Notes])
 
-// notes = loadState('notes',[Notes])
 
 
-  notes = [
-    new Notes({
-      noteTitle: 'JavaScript',
-      noteBody: 'Javascript is quite more challenging then html and css. Once you start doing more with it though, it gets easier.'
-    }),
-    new Notes({
-      noteTitle: 'Basketball',
-      noteBody: 'DO NOT forget you have basketball practice this whole week at 5pm.'
-    })
-  ]
+
+  // notes = [
+  //   new Notes({
+  //     title: 'JavaScript',
+  //     noteBody: 'Javascript is quite more challenging then html and css. Once you start doing more with it though, it gets easier.'
+  //   }),
+  //   new Notes({
+  //     title: 'Basketball',
+  //     noteBody: 'DO NOT forget you have basketball practice this whole week at 5pm.'
+  //   })
+  // ]
   
   /**@type {import("./models/note.js").Notes|null}*/
     activeNote = null

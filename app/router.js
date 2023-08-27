@@ -15,10 +15,10 @@ export const router = [
     <button data-bs-toggle="collapse" data-bs-target="#noteFormCollapse" class ="col-4">Create Note📝</button>
 
     <div class="collapse" id="noteFormCollapse">
-    <form action="">
+    <form onsubmit="app.notesController.createNote()" action="">
     <div class="row d-flex justify-content-around">
     <div class="col-3">
-            <input required name='title' 
+            <input required name='title' id="title"
             type="text"
               class="form-control"
               placeholder="Title"
@@ -34,18 +34,6 @@ export const router = [
               />
               </div>
               
-          <div class="col-8">
-          <div class="form-floating">
-              <textarea required name='description'
-              class="form-control"
-              placeholder="Description"
-              id="floatingTextarea2"
-                style="height: 100px"
-                ></textarea>
-                <label for="floatingTextarea2">Description</label>
-              </div>
-              
-              </div>
               <div class = "text-end" type = "submit">
               <button type="submit" class = "bg-danger">Submit!</button>
               </div>

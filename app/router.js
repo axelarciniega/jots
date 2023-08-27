@@ -26,7 +26,7 @@ export const router = [
               />
           </div>
           <div class="col-2">
-          <input required name='color' 
+          <input required name='noteColor' id="noteColor"
               type="color"
               class="form-control"
               placeholder="color"

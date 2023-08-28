@@ -23,6 +23,7 @@ let foundNote = AppState.notes.find(note => note.id == noteId)
         console.log(updatedBody)
         let active = AppState.activeNote
         active.noteBody = updatedBody
+        active.noteUpdateDate = new Date()
         AppState.emit('activeNote')
 
         _saveNotes()

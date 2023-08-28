@@ -29,8 +29,10 @@ export class notesController{
         console.log('Hi from the controller')
         _drawNotes()
         AppState.on('activeNote', _drawActive)
+
         
     }
+    
     setActive(noteId){
         notesServices.setActive(noteId)
     }

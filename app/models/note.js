@@ -11,6 +11,7 @@ export class Notes{
         this.noteTitle = data.noteTitle ? data.noteTitle : data.title    
         this.noteBody = data.noteBody ? data.noteBody : ''
         this.noteDate = data.noteDate ? new Date(data.noteDate) : new Date()
+        this.noteUpdateDate =data.noteDate ? new Date(data.noteDate) : new Date()
         this.noteColor = data.noteColor ? data.noteColor : data.noteColor
     }
 
@@ -41,7 +42,7 @@ export class Notes{
             >${this.noteBody}</textarea>
             <label for="floatingTextarea2">Notes Below</label>
             <div class="d-flex justify-content-between">
-            <button class="bg-grey" onclick="app.notesController.saveNote()">Save</button>
+            <button class="bg-grey" onclick="app.notesController.saveNote()">Save${this.noteUpdateDate.toLocaleTimeString()}</button>
             <button class="bg-grey" onclick="app.notesController.deleteNote('${this.id}')">Delete Note <i class="mdi mdi-delete"></i></button>
             
             </div>
@@ -52,9 +53,5 @@ export class Notes{
         `
     }
 
-    // get time(){
-    //     let date = this.noteDate
-    //     return date.toLocaleTimeString('en-us'{})
-    // }
 
 }

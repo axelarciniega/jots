@@ -1,8 +1,11 @@
 import { AppState } from "../AppState.js"
 import { notesServices } from "../services/notesServices.js"
-import { setHTML } from "../utils/Writer.js"
+import { setHTML} from "../utils/Writer.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
+
+
+
 function _drawNotes(){
     console.log('drawing NOTES')
     console.log(AppState)
@@ -19,7 +22,6 @@ function _drawActive(){
     setHTML('active-note',active.ActiveTemplate)
 }
 
-document.getElementById('note-count').innerText = `Note Count: ${AppState.notes.length.toString()}`
 
 
 export class notesController{
@@ -27,35 +29,35 @@ export class notesController{
         console.log('Hi from the controller')
         _drawNotes()
         AppState.on('activeNote', _drawActive)
+        
     }
     setActive(noteId){
         notesServices.setActive(noteId)
-}
-
-    saveNote(){
+    }
     
+    saveNote(){
+        
         let textAreaElem = document.querySelector('textarea')
         let updatedBody = textAreaElem.value
         console.log('saving', updatedBody)
         
         notesServices.saveNote(updatedBody)
     }
-
+    
     createNote(){
         window.event.preventDefault()
         const form = window.event.target
         const formData = getFormData(form)
         console.log('creating')
-
+        
         // @ts-ignore
         form.reset()
-
+        
         notesServices.createNote(formData)
         _drawNotes()
         _drawActive()
-        
     }
-
+    
     async deleteNote(noteId){
         if(await Pop.confirm('Are you want to delete note?')){
             console.log('deleting')
@@ -63,7 +65,10 @@ export class notesController{
         }
         _drawNotes()
         _drawActive()
+        
     }
-
 }
 
+
+
+document.getElementById('note-count').innerText = `Note Count: ${AppState.notes.length.toString()}`
